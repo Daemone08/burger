@@ -10,7 +10,7 @@
             <h2>Burgers Ordered</h2>
             <ul>
                 {{#each burgers}} {{#unless devoured}}
-                <li>{{burger_name}}</li>
+                {{>burgers/burger-block}}
                 {{/unless}} {{/each}}
             </ul>
         </div>
@@ -18,7 +18,7 @@
             <h2>Burgers Eaten</h2>
             <ul>
                 {{#each burgers}} {{#if devoured}}
-                <li>{{burger_name}}</li>
+                {{>burgers/burger-block}}
                 {{/if}} {{/each}}
             </ul>
         </div>
