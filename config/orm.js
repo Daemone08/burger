@@ -70,7 +70,8 @@ var orm = {
     insertOne: function (tableTarget, columns, values, callback) {
         // first the query string must be created in the form INSERT INTO table (columns) VALUES (values);
         // *****columns and values must be strings********values is values.length number of ?,? for escape purposes
-        queryString = "INSERT INTO " + tableTarget + " (" + columns.toString() + ") (" + printQuestionMarks(values.length) + ");"
+        queryString = "INSERT INTO " + tableTarget + " (" + columns.toString() + ") VALUES (" + printQuestionMarks(values.length) + ");"
+        console.log(queryString);
         // next the sql query is run using the sql query syntax (values is still the same array)
         connection.query(queryString, values, function (err, result) {
             // check for errors + throw

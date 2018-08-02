@@ -18,6 +18,19 @@ router.get("/", function (req, res) {
     });
 });
 
+// Post route for additional client input burgers
+router.post("/api/burgers", function (req, res) {
+    console.log(req.body)
+    burger.insertOne([
+        "burger_name", "devoured"
+    ], [
+            req.body.burger_name, req.body.devoured
+        ], function (result) {
+            // Send back the ID of the new burger
+            res.json({ id: result.insertId });
+        });
+});
+
 
 // Export routes for server.js to use.
 module.exports = router;
